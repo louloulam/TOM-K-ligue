@@ -7,25 +7,25 @@
 
 /* ── Variables ─────────────────────────────── */
 :root {
-  --noir:        #0a0812;
-  --nuit:        #0e0c1a;
-  --violet-deep: #140f2a;
-  --violet-mid:  #1e1540;
-  --violet-glow: #5c3d8f;
-  --violet-pale: #9b7ec8;
+  --noir:        #08060f;
+  --nuit:        #0c0a1e;
+  --violet-deep: #1a1040;
+  --violet-mid:  #2a1a5e;
+  --violet-glow: #7b52c9;
+  --violet-pale: #b89ee0;
   --gold:        #c9a96e;
   --gold-pale:   #e8d5b0;
   --crème:       #f5f0e8;
-  --gris-perlé:  #b8b0c8;
-  --filet:       rgba(155, 126, 200, 0.25);
+  --gris-perlé:  #c4bcd8;
+  --filet:       rgba(184, 158, 224, 0.3);
 
   --ff-titre:    'Cormorant Garamond', 'Georgia', serif;
   --ff-corps:    'Cormorant', 'Georgia', serif;
   --ff-accent:   'IM Fell English', serif;
 
   --transition:  0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --glow-small:  0 0 20px rgba(92, 61, 143, 0.4);
-  --glow-large:  0 0 80px rgba(92, 61, 143, 0.25);
+  --glow-small:  0 0 24px rgba(123, 82, 201, 0.5);
+  --glow-large:  0 0 80px rgba(123, 82, 201, 0.3);
 }
 
 /* ── Reset ─────────────────────────────────── */
@@ -43,34 +43,8 @@ body {
   font-weight: 300;
   letter-spacing: 0.02em;
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto;
 }
-
-/* ── Curseur personnalisé ─────────────────── */
-.cursor {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background: var(--violet-pale);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, background 0.3s;
-  mix-blend-mode: screen;
-}
-.cursor-ring {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(155, 126, 200, 0.5);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: all 0.25s ease;
-}
-body:hover .cursor-ring { opacity: 1; }
 
 /* ── Bruit de fond (texture grain) ────────── */
 body::before {
@@ -97,7 +71,7 @@ nav {
   transition: background var(--transition), padding var(--transition);
 }
 nav.scrolled {
-  background: rgba(10, 8, 18, 0.92);
+  background: rgba(8, 6, 15, 0.95);
   backdrop-filter: blur(16px);
   padding: 1.2rem 4rem;
   border-bottom: 1px solid var(--filet);
@@ -172,22 +146,35 @@ nav.scrolled {
   overflow: hidden;
 }
 
+/* Vidéo arrière-plan */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.22;
+  filter: saturate(0.6) brightness(0.7);
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(92, 61, 143, 0.22) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(60, 20, 100, 0.15) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(30, 15, 60, 0.2) 0%, transparent 70%),
-    var(--noir);
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(123, 82, 201, 0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(80, 30, 150, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(40, 20, 80, 0.25) 0%, transparent 70%),
+    rgba(8,6,15,0.72);
+  z-index: 1;
 }
 
 .hero-filet {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, transparent 60%, rgba(10,8,18,0.8) 100%);
+  background: linear-gradient(180deg, transparent 60%, rgba(8,6,15,0.85) 100%);
   pointer-events: none;
+  z-index: 2;
 }
 
 /* Ligne lumineuse horizontale */
@@ -197,10 +184,11 @@ nav.scrolled {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(155, 126, 200, 0.3) 30%, rgba(155, 126, 200, 0.6) 50%, rgba(155, 126, 200, 0.3) 70%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(184, 158, 224, 0.4) 30%, rgba(184, 158, 224, 0.8) 50%, rgba(184, 158, 224, 0.4) 70%, transparent);
   transform: translateY(-50%);
   animation: pulseLine 4s ease-in-out infinite;
   opacity: 0;
+  z-index: 3;
 }
 @keyframes pulseLine {
   0%, 100% { opacity: 0; transform: translateY(-50%) scaleX(0.5); }
@@ -209,7 +197,7 @@ nav.scrolled {
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   text-align: center;
   padding: 0 2rem;
   max-width: 900px;
@@ -311,7 +299,7 @@ nav.scrolled {
   transition: all var(--transition);
 }
 .btn-secondaire:hover {
-  border-color: rgba(155, 126, 200, 0.6);
+  border-color: rgba(184, 158, 224, 0.7);
   box-shadow: var(--glow-small);
   color: var(--violet-pale);
 }
@@ -328,6 +316,7 @@ nav.scrolled {
   gap: 0.5rem;
   opacity: 0;
   animation: fadeUp 1s ease 2s forwards;
+  z-index: 4;
 }
 .hero-scroll span {
   font-family: var(--ff-titre);
@@ -373,7 +362,7 @@ section { position: relative; z-index: 1; }
   height: 1px;
   width: 60px;
   background: var(--violet-pale);
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 .section-titre {
@@ -393,7 +382,7 @@ section { position: relative; z-index: 1; }
 #approche {
   padding: 9rem 0;
   background:
-    radial-gradient(ellipse 70% 50% at 80% 50%, rgba(92, 61, 143, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 50% at 80% 50%, rgba(123, 82, 201, 0.18) 0%, transparent 70%),
     var(--noir);
 }
 
@@ -420,14 +409,14 @@ section { position: relative; z-index: 1; }
 .approche-citation {
   margin-top: 3rem;
   padding: 2rem;
-  border-left: 1px solid rgba(155, 126, 200, 0.4);
+  border-left: 1px solid rgba(184, 158, 224, 0.5);
   position: relative;
 }
 .approche-citation::before {
   content: '«';
   font-family: var(--ff-accent);
   font-size: 4rem;
-  color: rgba(155, 126, 200, 0.2);
+  color: rgba(184, 158, 224, 0.25);
   position: absolute;
   top: -0.5rem;
   left: 1.5rem;
@@ -452,8 +441,12 @@ section { position: relative; z-index: 1; }
   padding-left: 1rem;
 }
 
+/* Orbe photo */
 .approche-visuel {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .approche-orbe {
   width: 100%;
@@ -461,61 +454,55 @@ section { position: relative; z-index: 1; }
   max-width: 420px;
   margin: 0 auto;
   border-radius: 50%;
-  background:
-    radial-gradient(ellipse 60% 60% at 40% 40%, rgba(155, 126, 200, 0.15) 0%, transparent 70%),
-    radial-gradient(ellipse at 70% 70%, rgba(92, 61, 143, 0.2) 0%, transparent 60%);
+  overflow: hidden;
   border: 1px solid var(--filet);
+  box-shadow: 0 0 60px rgba(123, 82, 201, 0.25);
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 .approche-orbe::before {
   content: '';
   position: absolute;
   inset: -20px;
   border-radius: 50%;
-  border: 1px solid rgba(155, 126, 200, 0.1);
+  border: 1px solid rgba(184, 158, 224, 0.15);
   animation: pulse 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
 }
 .approche-orbe::after {
   content: '';
   position: absolute;
   inset: -45px;
   border-radius: 50%;
-  border: 1px solid rgba(155, 126, 200, 0.05);
+  border: 1px solid rgba(184, 158, 224, 0.07);
   animation: pulse 4s ease-in-out 1s infinite;
+  pointer-events: none;
+  z-index: 2;
 }
+.approche-orbe img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
 @keyframes pulse {
   0%, 100% { transform: scale(1); opacity: 0.6; }
   50% { transform: scale(1.04); opacity: 1; }
-}
-.orbe-texte {
-  text-align: center;
-  padding: 2rem;
-}
-.orbe-texte .grand {
-  font-family: var(--ff-titre);
-  font-size: 5rem;
-  font-weight: 300;
-  color: var(--violet-pale);
-  line-height: 1;
-  display: block;
-}
-.orbe-texte .petit {
-  font-family: var(--ff-titre);
-  font-size: 0.7rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--gris-perlé);
-  margin-top: 0.5rem;
 }
 
 /* ── #services ─────────────────────────────── */
 #services {
   padding: 9rem 0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(60, 20, 100, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(80, 30, 150, 0.15) 0%, transparent 60%),
     var(--nuit);
 }
 
@@ -551,7 +538,7 @@ section { position: relative; z-index: 1; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(92, 61, 143, 0.15) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(123, 82, 201, 0.2) 0%, transparent 70%);
   opacity: 0;
   transition: opacity var(--transition);
 }
@@ -562,7 +549,7 @@ section { position: relative; z-index: 1; }
   font-size: 0.62rem;
   letter-spacing: 0.4em;
   color: var(--violet-pale);
-  opacity: 0.5;
+  opacity: 0.6;
   margin-bottom: 1.5rem;
 }
 .service-icon {
@@ -570,6 +557,7 @@ section { position: relative; z-index: 1; }
   margin-bottom: 1.2rem;
   opacity: 0.7;
   display: block;
+  color: var(--violet-pale);
 }
 .service-titre {
   font-family: var(--ff-titre);
@@ -591,7 +579,7 @@ section { position: relative; z-index: 1; }
 #parcours {
   padding: 9rem 0;
   background:
-    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(92, 61, 143, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(123, 82, 201, 0.16) 0%, transparent 70%),
     var(--noir);
 }
 
@@ -655,7 +643,7 @@ section { position: relative; z-index: 1; }
   bottom: 0;
   width: 1px;
   background: linear-gradient(to bottom, var(--violet-pale), transparent);
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
 .tl-item {
@@ -671,7 +659,7 @@ section { position: relative; z-index: 1; }
   height: 6px;
   border-radius: 50%;
   background: var(--violet-pale);
-  box-shadow: 0 0 10px rgba(155, 126, 200, 0.6);
+  box-shadow: 0 0 12px rgba(184, 158, 224, 0.8);
 }
 .tl-annee {
   font-family: var(--ff-titre);
@@ -716,21 +704,21 @@ section { position: relative; z-index: 1; }
 .temoignage-card {
   flex: 0 0 420px;
   scroll-snap-align: start;
-  background: rgba(20, 15, 42, 0.6);
+  background: rgba(26, 16, 64, 0.7);
   border: 1px solid var(--filet);
   padding: 3rem;
   position: relative;
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 .temoignage-card:hover {
-  border-color: rgba(155, 126, 200, 0.4);
+  border-color: rgba(184, 158, 224, 0.55);
   box-shadow: var(--glow-small);
 }
 .temoignage-card::before {
   content: '"';
   font-family: var(--ff-accent);
   font-size: 6rem;
-  color: rgba(155, 126, 200, 0.12);
+  color: rgba(184, 158, 224, 0.15);
   position: absolute;
   top: 0.5rem;
   right: 1.5rem;
@@ -754,7 +742,7 @@ section { position: relative; z-index: 1; }
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(92, 61, 143, 0.3);
+  background: rgba(123, 82, 201, 0.35);
   border: 1px solid var(--filet);
   display: flex;
   align-items: center;
@@ -780,7 +768,7 @@ section { position: relative; z-index: 1; }
 #contact {
   padding: 9rem 0;
   background:
-    radial-gradient(ellipse 80% 70% at 50% 60%, rgba(92, 61, 143, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 70% at 50% 60%, rgba(123, 82, 201, 0.22) 0%, transparent 70%),
     var(--noir);
 }
 
@@ -866,7 +854,7 @@ a.contact-val:hover { color: var(--crème); }
 .form-group input,
 .form-group select,
 .form-group textarea {
-  background: rgba(20, 15, 42, 0.5);
+  background: rgba(26, 16, 64, 0.6);
   border: 1px solid var(--filet);
   color: var(--crème);
   font-family: var(--ff-corps);
@@ -878,13 +866,13 @@ a.contact-val:hover { color: var(--crème); }
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(184, 176, 200, 0.3);
+  color: rgba(196, 188, 216, 0.3);
 }
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: rgba(155, 126, 200, 0.5);
-  box-shadow: 0 0 16px rgba(92, 61, 143, 0.2);
+  border-color: rgba(184, 158, 224, 0.6);
+  box-shadow: 0 0 20px rgba(123, 82, 201, 0.25);
 }
 .form-group select option {
   background: var(--violet-deep);
@@ -1057,7 +1045,7 @@ footer {
 .mobile-menu {
   position: fixed;
   inset: 0;
-  background: rgba(10, 8, 18, 0.98);
+  background: rgba(8, 6, 15, 0.98);
   backdrop-filter: blur(20px);
   z-index: 200;
   display: flex;

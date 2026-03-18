@@ -4,43 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── Curseur personnalisé ──────────────────
-  const cursor = document.querySelector('.cursor');
-  const ring   = document.querySelector('.cursor-ring');
-
-  if (cursor && ring) {
-    let mouseX = 0, mouseY = 0;
-    let ringX  = 0, ringY  = 0;
-
-    document.addEventListener('mousemove', e => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursor.style.left = mouseX + 'px';
-      cursor.style.top  = mouseY + 'px';
-    });
-
-    const animRing = () => {
-      ringX += (mouseX - ringX) * 0.12;
-      ringY += (mouseY - ringY) * 0.12;
-      ring.style.left = ringX + 'px';
-      ring.style.top  = ringY + 'px';
-      requestAnimationFrame(animRing);
-    };
-    animRing();
-
-    // Grossir le ring sur liens
-    document.querySelectorAll('a, button, .service-card').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        ring.style.transform   = 'translate(-50%, -50%) scale(1.8)';
-        ring.style.borderColor = 'rgba(155, 126, 200, 0.8)';
-      });
-      el.addEventListener('mouseleave', () => {
-        ring.style.transform   = 'translate(-50%, -50%) scale(1)';
-        ring.style.borderColor = 'rgba(155, 126, 200, 0.5)';
-      });
-    });
-  }
-
   // ── Nav sticky ────────────────────────────
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
@@ -73,19 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   reveals.forEach(el => observer.observe(el));
 
-  // ── Compteur années expérience ────────────
-  const counter = document.querySelector('.grand');
-  if (counter) {
-    const target = parseInt(counter.textContent);
-    let current  = 0;
-    const step   = Math.ceil(target / 30);
-    const timer  = setInterval(() => {
-      current = Math.min(current + step, target);
-      counter.textContent = current;
-      if (current >= target) clearInterval(timer);
-    }, 50);
-  }
-
   // ── Formulaire ────────────────────────────
   const form = document.querySelector('.contact-form');
   if (form) {
@@ -104,6 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
       heroBg.style.transform = `translateY(${y * 0.3}px)`;
+    }, { passive: true });
+  }
+
+  // ── Parallaxe vidéo hero ──────────────────
+  const heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      heroVideo.style.transform = `translateY(${y * 0.2}px)`;
     }, { passive: true });
   }
 
