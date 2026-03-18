@@ -45,14 +45,12 @@
   <!-- ── Hero ── -->
   <section id="hero">
 
-    <!-- Vidéo en arrière-plan -->
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="Design sans titre.mp4" type="video/mp4" />
+    <!-- Vidéo en arrière-plan — doit s'appeler hero.mp4 dans le dossier -->
+    <video id="hero-video" autoplay muted loop playsinline>
+      <source src="hero.mp4" type="video/mp4" />
     </video>
 
-    <div class="hero-bg"></div>
-    <div class="hero-filet"></div>
-    <div class="hero-line"></div>
+    <div class="hero-overlay"></div>
 
     <div class="hero-content">
       <p class="hero-eyebrow">Psychanalyste · Brest · Finistère</p>
@@ -377,17 +375,13 @@
   <!-- ── Contact ── -->
   <section id="contact">
     <div class="section-inner">
-
       <div class="contact-grid">
-
         <div>
           <p class="section-eyebrow reveal">Contact</p>
           <h2 class="section-titre reveal">Prendre <em>rendez-vous</em></h2>
-
           <div class="contact-infos reveal reveal-delay-1">
             <h3>Informations pratiques</h3>
             <div class="contact-bloc">
-
               <div class="contact-ligne">
                 <div class="contact-icon">📍</div>
                 <div>
@@ -395,7 +389,6 @@
                   <span class="contact-val">237 rue Anatole France<br>29200 Brest</span>
                 </div>
               </div>
-
               <div class="contact-ligne">
                 <div class="contact-icon">🕐</div>
                 <div>
@@ -403,7 +396,6 @@
                   <span class="contact-val">Lundi – Vendredi<br>Sur rendez-vous</span>
                 </div>
               </div>
-
               <div class="contact-ligne">
                 <div class="contact-icon">🚗</div>
                 <div>
@@ -411,35 +403,26 @@
                   <span class="contact-val">Parking disponible<br>Accès handicapé</span>
                 </div>
               </div>
-
               <div class="contact-ligne">
                 <div class="contact-icon">💬</div>
                 <div>
                   <div class="contact-label">Premier contact</div>
-                  <span class="contact-val">
-                    Un message suffit. Je vous réponds sous 48h 
-                    pour convenir d'un premier entretien.
-                  </span>
+                  <span class="contact-val">Un message suffit. Je vous réponds sous 48h pour convenir d'un premier entretien.</span>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
-
         <div class="reveal reveal-delay-2">
           <form class="contact-form" novalidate>
-
             <div class="form-group">
               <label for="nom">Votre prénom</label>
               <input type="text" id="nom" name="nom" placeholder="Prénom" required />
             </div>
-
             <div class="form-group">
               <label for="email">Email</label>
               <input type="email" id="email" name="email" placeholder="votre@email.fr" required />
             </div>
-
             <div class="form-group">
               <label for="motif">Motif de consultation</label>
               <select id="motif" name="motif">
@@ -452,19 +435,13 @@
                 <option value="autre">Autre</option>
               </select>
             </div>
-
             <div class="form-group">
               <label for="message">Votre message <em style="font-style:italic;color:var(--texte-doux);font-size:0.8em">(confidentiel)</em></label>
               <textarea id="message" name="message" placeholder="Décrivez brièvement ce qui vous amène…"></textarea>
             </div>
-
-            <button type="submit" class="form-submit">
-              <span>Envoyer ma demande</span>
-            </button>
-
+            <button type="submit" class="form-submit"><span>Envoyer ma demande</span></button>
           </form>
         </div>
-
       </div>
     </div>
   </section>
@@ -472,16 +449,10 @@
   <!-- ── Footer ── -->
   <footer>
     <div class="footer-inner">
-
       <div class="footer-marque">
         <a href="#" class="nav-logo">Tom <span>Kéligue</span></a>
-        <p class="footer-desc">
-          Psychanalyste à Brest depuis plus de 15 ans. Un espace de parole 
-          confidentiel, singulier et bienveillant pour vous accompagner 
-          dans votre chemin intérieur.
-        </p>
+        <p class="footer-desc">Psychanalyste à Brest depuis plus de 15 ans. Un espace de parole confidentiel, singulier et bienveillant.</p>
       </div>
-
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
@@ -492,7 +463,6 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Informations</h4>
         <ul>
@@ -502,9 +472,7 @@
           <li><a href="#">Confidentialité garantie</a></li>
         </ul>
       </div>
-
     </div>
-
     <div class="footer-bas">
       <span class="footer-copy">© 2025 Tom Kéligue — Psychanalyste · Brest · Tous droits réservés</span>
       <span class="footer-copy">Mentions légales · Politique de confidentialité</span>
