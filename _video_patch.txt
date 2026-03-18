@@ -1,0 +1,4 @@
+    <!-- Vidéo en arrière-plan -->
+    <video id="hero-video" autoplay muted loop playsinline>
+      <source src="Design sans titre.mp4" type="video/mp4" />
+    </video>
