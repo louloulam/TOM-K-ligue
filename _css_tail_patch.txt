@@ -1,0 +1,43 @@
+  .nav-links, .nav-cta { display: none; }
+  .section-inner { padding: 0 1.5rem; }
+  .approche-grid, .contact-grid, .parcours-content { grid-template-columns: 1fr; gap: 3rem; }
+  .parcours-infos { position: static; }
+  .services-grille { grid-template-columns: 1fr; border-radius: 8px; }
+  .service-card { border-right: none; }
+  .service-card:nth-child(n) { border-bottom: 1px solid var(--filet); }
+  .service-card:last-child { border-bottom: none; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-bas { flex-direction: column; gap: 1rem; text-align: center; }
+  .temoignage-card { flex: 0 0 85vw; }
+  .contact-form { padding: 2rem; }
+}
+@media (max-width: 600px) {
+  .hero-titre { font-size: 2.8rem; }
+  .hero-btns { flex-direction: column; align-items: center; }
+}
+
+/* ── Hamburger ── */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; }
+.hamburger span { display: block; width: 24px; height: 1px; background: var(--texte-principal); transition: all 0.3s ease; }
+@media (max-width: 900px) { .hamburger { display: flex; } }
+
+.mobile-menu { position: fixed; inset: 0; background: rgba(247, 244, 255, 0.98); backdrop-filter: blur(20px); z-index: 200; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.mobile-menu.open { opacity: 1; pointer-events: all; }
+.mobile-menu ul { list-style: none; text-align: center; display: flex; flex-direction: column; gap: 2rem; }
+.mobile-menu ul a { font-family: var(--ff-titre); font-size: 2.5rem; font-weight: 300; color: var(--texte-principal); text-decoration: none; letter-spacing: 0.05em; transition: color 0.3s; }
+.mobile-menu ul a:hover { color: var(--violet-mid); }
+.mobile-close { position: absolute; top: 2rem; right: 2rem; font-size: 1.5rem; color: var(--texte-secondaire); cursor: pointer; background: none; border: none; }
+
+/* ── Badge Google avis ── */
+.google-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  font-family: var(--ff-titre);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--texte-doux);
+}
+.google-badge svg { flex-shrink: 0; }
