@@ -1,0 +1,3 @@
+  <!-- ── Parcours ── -->
+  <section id="parcours">
+    <div class="section-inner">
