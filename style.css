@@ -150,7 +150,41 @@ section { position: relative; z-index: 1; }
 .service-desc { font-family: var(--ff-corps); font-size: 0.95rem; line-height: 1.8; color: var(--texte-secondaire); }
 
 /* ── Parcours ── */
-#parcours { padding: 9rem 0; background: var(--fond-alt); border-top: 1px solid var(--filet); }
+#parcours {
+  padding: 0;
+  border-top: 1px solid var(--filet);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Image de fond pleine section */
+#parcours .parcours-bg {
+  position: absolute;
+  inset: 0;
+  background: url('parcours-bg.jpg') center center / cover no-repeat;
+  z-index: 0;
+}
+
+/* Overlay clair par-dessus l'image pour garder la lisibilité */
+#parcours .parcours-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(247, 244, 255, 0.88) 0%,
+    rgba(247, 244, 255, 0.80) 50%,
+    rgba(237, 232, 251, 0.75) 100%
+  );
+}
+
+#parcours .section-inner {
+  position: relative;
+  z-index: 1;
+  padding-top: 9rem;
+  padding-bottom: 9rem;
+}
+
 .parcours-content { display: grid; grid-template-columns: 1fr 1.4fr; gap: 7rem; align-items: start; }
 .parcours-infos { position: sticky; top: 8rem; }
 .parcours-infos p { font-size: 1.05rem; line-height: 1.9; color: var(--texte-secondaire); margin-bottom: 2rem; }
@@ -175,19 +209,8 @@ section { position: relative; z-index: 1; }
 .temoignage-card:hover { border-color: var(--violet-pale); box-shadow: var(--glow-small); }
 
 /* Badge Google */
-.google-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1.2rem;
-  font-family: var(--ff-titre);
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--texte-doux);
-}
+.google-badge { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.2rem; font-family: var(--ff-titre); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--texte-doux); }
 .google-badge svg { flex-shrink: 0; }
-
 .temoignage-texte { font-family: var(--ff-accent); font-size: 1.05rem; font-style: italic; line-height: 1.8; color: var(--texte-secondaire); margin-bottom: 2rem; }
 .temoignage-auteur { display: flex; align-items: center; gap: 1rem; }
 .temoignage-initiale { width: 40px; height: 40px; border-radius: 50%; background: var(--violet-xlight); border: 2px solid var(--violet-light); display: flex; align-items: center; justify-content: center; font-family: var(--ff-titre); font-size: 1rem; color: var(--violet-mid); }

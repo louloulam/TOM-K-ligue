@@ -1,0 +1,27 @@
+  <!-- ── Parcours ── -->
+  <section id="parcours">
+    <div class="parcours-bg"></div>
+    <div class="section-inner">
+      <div class="parcours-content">
+        <div class="parcours-infos reveal">
+          <p class="section-eyebrow">Parcours</p>
+          <h2 class="section-titre">Tom <em>Kéligue</em></h2>
+          <p>Psychanalyste installé à Brest depuis de nombreuses années, je reçois des patients de tous âges dans un cadre confidentiel et bienveillant.</p>
+          <p>Ma formation conjugue la rigueur de la tradition analytique et une ouverture aux apports contemporains. J'ai notamment été formé à l'Université Paul Valéry de Montpellier, et ma pratique s'est développée au fil de supervisions et d'une analyse personnelle longue.</p>
+          <div class="infos-bloc">
+            <div class="info-item"><span class="info-label">Adresse</span><span class="info-val">237 rue Anatole France<br>29200 Brest</span></div>
+            <div class="info-item"><span class="info-label">Accès</span><span class="info-val">Accès handicapé · Parking disponible</span></div>
+            <div class="info-item"><span class="info-label">Séances</span><span class="info-val">Sur rendez-vous uniquement</span></div>
+            <div class="info-item"><span class="info-label">Public</span><span class="info-val">Enfants · Adolescents · Adultes</span></div>
+          </div>
+        </div>
+        <div class="timeline reveal reveal-delay-2">
+          <div class="tl-item"><div class="tl-annee">Formation initiale</div><div class="tl-titre">Université Paul Valéry — Montpellier 3</div><div class="tl-desc">Études de psychologie clinique et psychopathologie. Formation approfondie aux courants freudien et lacanien.</div></div>
+          <div class="tl-item"><div class="tl-annee">Analyse personnelle</div><div class="tl-titre">Un travail sur soi avant tout</div><div class="tl-desc">Condition fondamentale de l'exercice : une longue analyse personnelle menée avec un analyste confirmé, gage d'une pratique éthique et exigeante.</div></div>
+          <div class="tl-item"><div class="tl-annee">Supervisions</div><div class="tl-titre">Formation continue et transmission</div><div class="tl-desc">Supervisions régulières auprès de pairs et d'aînés. Participation à des groupes de travail et séminaires cliniques.</div></div>
+          <div class="tl-item"><div class="tl-annee">Installation à Brest</div><div class="tl-titre">Cabinet 237 rue Anatole France</div><div class="tl-desc">Ouverture du cabinet brestois. Réception de patients individuels, de couples, d'adolescents et d'enfants.</div></div>
+          <div class="tl-item"><div class="tl-annee">Aujourd'hui</div><div class="tl-titre">Une pratique vivante</div><div class="tl-desc">Plus de 15 ans de clinique. Une conviction intacte dans la puissance de la parole et dans la singularité irréductible de chaque sujet.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
